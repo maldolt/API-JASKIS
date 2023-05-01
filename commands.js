@@ -89,9 +89,13 @@ db.bounties.find({ location: "Grasslands"})
 // 2. Query for all bounties with a reward worth 10000 or more
 db.bounties.find({ reward: {$gt: 1000}})
 // 3. Query for all bounties, but exclude the client attribute from being shown
-db.bounties.find({ client: 0})
+db.bounties.find({ client: 0}) //This is not the right formate for this command. This will return nothing
+//The command should be db.bounties.find({}, { client: 0 })
+
 // 4. Query for a Groundhog in the Woodlands
-db.bounties.find({ name: "Groundhog"},{ location: "Woodlands"})
+db.bounties.find({ name: "Groundhog"},{ location: "Woodlands"}) //This is not the right formate for this command 
+//The command should be db.bounties.find({ location: "Woodlands", species: "Groundhog" })
+
 // Update and Delete
 // 1. Update the reward for Polarwind to 10000
 db.bounties.updateOne(
